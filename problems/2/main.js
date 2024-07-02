@@ -37,21 +37,15 @@ var addTwoNumbers = function (l1, l2) {
         sum, carry = 0;
 
     while (l1 != null || l2 != null || carry) {
-        sum = carry;
-
-        if (l1 != null) {
-            sum += l1.val;
-            l1 = l1.next;
-        }
-
-        if (l2 != null) {
-            sum += l2.val;
-            l2 = l2.next;
-        }
+        // Total sum
+        sum = carry + (l1 ? l1.val : 0) + (l2 ? l2.val : 0);
 
         carry = (sum > 9) ? 1 : 0;
         current = goNext(current);
         current.val = sum % 10;
+
+        l1 = l1 ? l1.next : l1;
+        l2 = l2 ? l2.next : l2;
     }
 
     return PTR.next;
