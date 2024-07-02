@@ -4,22 +4,17 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-    // Hash table init
+    
     const map = new Map();
-    for (let x in nums)
-        // { key: number, value: index }
-        map.set(nums[x].toString(), x);
 
-    // Search
-    var complement;
     for (let x in nums) {
-        complement = target - nums[x];
-        let y = map.get(complement.toString());
-        if (y && x != y)
-            return [x, y];
-    }
+        const complement = target - nums[x];
 
-    return null;
+        if (complement in map) return [map[complement], x];
+
+        // { key: number, value: index }
+        map[nums[x]] = x;
+    }
 };
 
 (function main() {
