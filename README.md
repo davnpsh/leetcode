@@ -8,7 +8,7 @@ My LeetCode solutions.
 
 - `Rust` (requires [`rust-script`](https://rust-script.org/))
 
-Most recent edited file:
+Execute most recent edited solution:
 
 ```sh
 bash run.sh
